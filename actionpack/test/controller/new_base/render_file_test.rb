@@ -72,23 +72,13 @@ module RenderFile
     end
 
     test "rendering a relative path" do
-      begin
-        ActionView::PathResolver.allow_external_files = true
-        get :relative_path
-        assert_response "The secret is in the sauce\n"
-      ensure
-        ActionView::PathResolver.allow_external_files = false
-      end
+      get :relative_path
+      assert_response "The secret is in the sauce\n"
     end
 
     test "rendering a relative path with dot" do
-      begin
-        ActionView::PathResolver.allow_external_files = true
-        get :relative_path_with_dot
-        assert_response "The secret is in the sauce\n"
-      ensure
-        ActionView::PathResolver.allow_external_files = false
-      end
+      get :relative_path_with_dot
+      assert_response "The secret is in the sauce\n"
     end
 
     test "rendering a Pathname" do
